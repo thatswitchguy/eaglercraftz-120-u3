@@ -64,42 +64,4 @@
     }
   </style>
 </head>
-<body>
-  <div class="card">
-    <div class="icon">▶</div>
-    <h1>EaglercraftZ 1.20</h1>
-    <p>Download the offline HTML file to play Minecraft in your browser — no install needed. Just open the file locally anytime!</p>
-    <button class="btn" onclick="startDownload()">Download EaglercraftZ</button>
-    <div class="status" id="status">✅ Download started!</div>
-    <div class="countdown" id="countdown">Auto-downloading in <span id="timer">30</span>s...</div>
-    <p class="note">Save the file, then open it in your browser to play.<br>Works fully offline.</p>
-  </div>
 
-  <script>
-    function startDownload() {
-      var a = document.createElement('a');
-      a.href = 'EaglercraftZ_1.20_Offline_International.html';
-      a.download = 'EaglercraftZ_1.20_Offline_International.html';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      document.getElementById('status').style.display = 'block';
-      document.getElementById('countdown').style.display = 'none';
-    }
-
-    window.addEventListener('load', function() {
-      var seconds = 30;
-      var timerEl = document.getElementById('timer');
-      var interval = setInterval(function() {
-        seconds--;
-        timerEl.textContent = seconds;
-        if (seconds <= 0) {
-          clearInterval(interval);
-          startDownload();
-        }
-      }, 1000);
-      setTimeout(startDownload, 30000);
-    });
-  </script>
-</body>
-</html>
